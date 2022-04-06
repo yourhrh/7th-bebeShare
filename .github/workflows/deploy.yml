@@ -1,8 +1,9 @@
-name: deploy
+name: bebeShare_Deploy
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ develop , main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -21,11 +22,8 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "bebeshare-deploy"
-          heroku_email: "blood_nail@naver.com"
-
-
-
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
 
 
 

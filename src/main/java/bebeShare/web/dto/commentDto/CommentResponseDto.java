@@ -1,17 +1,21 @@
 package bebeShare.web.dto.commentDto;
 
+import bebeShare.domain.common.entity.ResEntity;
 import lombok.Getter;
 
+import static bebeShare.domain.common.CommonContants.COMMENT_SAVE_OK;
+import static bebeShare.domain.common.ResponeMsgEnum.RESPONES_SUCCESS;
+
 @Getter
-public class CommentResponseDto {
+public class CommentResponseDto extends ResEntity {
 
     private String resultCode;
     private String resultMsg;
     private Long productId;
 
     public CommentResponseDto(Long productId) {
-        this.resultCode = "000";
-        this.resultMsg = "댓글 등록 성공";
+        this.setResultCode(RESPONES_SUCCESS.getValue());
+        this.setResultMsg(COMMENT_SAVE_OK);
         this.productId = productId;
     }
 }
